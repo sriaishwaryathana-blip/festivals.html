@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins",;
+    }
+
+    body {
+        background:white;
+        color:grey;
+        }
+            /* HEADER */
+    header {
+        background: linear-gradient(135deg, orange, red);
+        color: white;
+        text-align: center;
+        padding: 35px 20px;
+    }
+        header h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+    }
+
+    header p {
+        font-size: 18px;
+    }
+
+    nav {
+        background:purple;
+        text-align: center;
+        padding: 14px;
+    
+    }
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 18px;
+        font-weight: bold;
+    }
+
+    nav a:hover {
+        color: yellow;
+    }
+
+    /* INTRO */
+    .intro {
+        text-align: center;
+        padding: 35px 20px 20px;
+    }
+
+    .intro h2 {
+        color: brown;
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+
+    .intro p {
+        max-width: 800px;
+        margin: auto;
+        line-height: 1.7;
+    }
+
+    /* FESTIVAL GRID */
+    .festival-container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 30px auto 50px;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 25px;
+    }
+
+    .festival-card {
+        background: white;
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 5px 18px black;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .festival-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 25px black;
+    }
+
+    .festival-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+
+    .festival-card h3 {
+        padding: 15px 15px 5px;
+        color: palevioletred;
+        font-size: 21px;
+    }
+    /* POPUP */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 100;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background:black, 
+        align-items: center;
+        padding: 20px;
+    }
+
+    .modal-content {
+        background: white;
+        width: 95%;
+        max-width: 650px;
+        max-height: 90vh;
+        overflow-y: auto;
+        border-radius: 20px;
+        padding: 25px;
+        position: relative;
+        animation: popup 0.3s ease;
+    }
+        .modal-content img {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+        border-radius: 15px;
+        margin-bottom: 15px;
+    }
+
+    .modal-content h2 {
+        color: orangered;
+        margin-bottom: 12px;
+    }
+
+    .modal-content h4 {
+        color: plum;
+        margin-top: 15px;
+        margin-bottom: 5px;
+    }
+        .modal-content p {
+        line-height: 1.6;
+    }
+
+    .close {
+        position: absolute;
+        right: 20px;
+        top: 15px;
+        font-size: 30px;
+        font-weight: bold;
+        color:gray;
+        cursor: pointer;
+        background: white;
+        border-radius: 50%;
+        width: 38px;
+        height: 38px;
+        text-align: center;
+        line-height: 35px;
+    }
+
+    .close:hover {
+        color: red;
+    }
+    /* FOOTER */
+    footer {
+        background: #4a148c;
+        color: white;
+        text-align: center;
+        padding: 25px;
+    }
+
+    footer h3 {
+        margin-bottom: 8px;
+    }
+
+    @media(max-width:600px) {
+        header h1 {
+            font-size: 30px;
+        }
+
+        nav a {
+            margin: 0 7px;
+            font-size: 14px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <header>
+    <h1>INDIAN FESTIVALS</h1>
+    <p>In Indian we celebrate many fevistivals.every festival has a detalied history. festivals are celebrated with great devine.</p>
+</header>
+<nav>
+    <a href="#">Home</a>
+    <a href="#festivals">Festivals</a>
+    <a href="#about">About</a>
+</nav>
+
+<section class="intro" id="about">
+    <h2>🎉 Festivals of India</h2>
+    <p>
+        India is known for its rich culture, traditions and colourful festivals.
+        From lights and colours to music and devotion, every festival has a
+        unique story and brings people together.
+        <br><br>
+        <b>Click on any festival below to discover more!</b>
+    </p>
+</section>
+<section class="festival-container" id="festivals">
+
+    <!-- 1 -->
+    <div class="festival-card"
+        onclick="showFestival('Diwali',
+        'Diwali is the festival of lights. It celebrates the victory of light over darkness and good over evil.',
+        'All over India, especially North India, Maharashtra, Gujarat, Karnataka and Tamil Nadu.',
+        'Lighting diyas, decorating homes, fireworks, prayers and sharing sweets.',
+        'October or November',
+        'C:\Users\OM\Downloads\deepavali.jfif')">
+
+        <img src="C:\Users\OM\Downloads\deepavali.jfif">
+        <h3>🪔 Diwali</h3>
+        <p>Festival of Lights</p>
+    </div>
+    <!-- 2 -->
+    <div class="festival-card"
+        onclick="showFestival('Holi',
+        'Holi celebrates the arrival of spring and the triumph of good over evil.',
+        'North India, Uttar Pradesh, Rajasthan, Gujarat, Maharashtra and many other parts of India.',
+        'Playing with colours, music, dancing and enjoying traditional sweets.',
+        'February or March',
+        'C:\Users\OM\Downloads\hoil..jfif')">
+
+        <img src="C:\Users\OM\Downloads\hoil..jfif">
+        <h3>🌈 Holi</h3>
+        <p>Festival of Colours</p>
+    </div>
+    <!-- 3 -->
+    <div class="festival-card"
+        onclick="showFestival('Dussehra',
+        'Dussehra celebrates the victory of Lord Rama over Ravana and the triumph of good over evil.',
+        'North India, Karnataka, West Bengal and many other states.',
+        'Ramlila performances, processions and burning of symbolic effigies of Ravana.',
+        'September or October',
+        'C:\Users\OM\Downloads\dashara.jfif')"> 
+
+        <img src="C:\Users\OM\Downloads\dashara.jfif">
+        <h3>🏹 Dussehra</h3>
+        <p>Victory of Good over Evil</p>
+    </div>
+
+    <!-- 4 -->
+    <div class="festival-card"
+        onclick="showFestival('Ganesh Chaturthi',
+        'Ganesh Chaturthi celebrates the birth of Lord Ganesha, the Hindu god associated with wisdom and new beginnings.',
+        'Maharashtra, Telangana, Andhra Pradesh, Karnataka and Goa.',
+        'Installing Ganesha idols, prayers, cultural programs and processions.',
+        'August or September',
+        'C:\Users\OM\Downloads\ganesh.jfif')">
+
+        <img src="C:\Users\OM\Downloads\ganesh.jfif">
+        <h3>🐘 Ganesh Chaturthi</h3>
+        <p>Celebrating Lord Ganesha</p>
+    </div>
+        <!-- 5 -->
+    <div class="festival-card"
+        onclick="showFestival('Pongal',
+        'Pongal is a harvest festival expressing gratitude for nature, the Sun and cattle.',
+        'Tamil Nadu and Tamil communities across India.',
+        'Cooking Pongal, decorating homes with kolam, traditional games and family gatherings.',
+        'January',
+        'C:\Users\OM\Downloads\sankarnthi.jfif')">
+
+        <img src="C:\Users\OM\Downloads\sankarnthi.jfif">
+        <h3>🌾 Pongal</h3>
+        <p>Telugu Harvest Festival</p>
+    </div>
+    <!-- 6 -->
+    <div class="festival-card"
+        onclick="showFestival('Onam',
+        'Onam is a harvest festival associated with the legendary King Mahabali.',
+        'Kerala.',
+        'Pookalam, traditional dances, boat races and the famous Onam Sadya.',
+        'August or September',
+        'C:\Users\OM\Downloads\onam.jfif')">
+
+        <img src="C:\Users\OM\Downloads\onam.jfif">
+        <h3>🌸 Onam</h3>
+        <p>Festival of boats</p>
+    </div>
+        <!-- 7 -->
+    <div class="festival-card"
+        onclick="showFestival('Navratri',
+        'Navratri is a nine-night festival dedicated to different forms of Goddess Durga.',
+        'Gujarat, West Bengal, Karnataka, Maharashtra and many other states.',
+        'Garba, Dandiya, devotional music, fasting and colourful decorations.',
+        'September or October',
+        'C:\Users\OM\Downloads\navarathri.jfif')">
+
+        <img src="C:\Users\OM\Downloads\navarathri.jfif">
+        <h3>💃 Navratri</h3>
+        <p>Nine Nights of Devotion</p>
+    </div>
+        <!-- 8 -->
+    <div class="festival-card"
+        onclick="showFestival('Durga Puja',
+        'Durga Puja celebrates Goddess Durga and her victory over the demon Mahishasura.',
+        'West Bengal, especially Kolkata, Assam, Odisha and Tripura.',
+        'Beautiful Durga idols, pandals, cultural programs and processions.',
+        'September or October',
+        'C:\Users\OM\Downloads\durga puja.jfif')">
+
+        <img src="C:\Users\OM\Downloads\durga puja.jfif">
+        <h3>🌺 Durga Puja</h3>
+        <p>Festival of Goddess Durga</p>
+    </div>
+    <!-- 9 -->
+    <div class="festival-card"
+        onclick="showFestival('Janmashtami',
+        'Janmashtami celebrates the birth of Lord Krishna.',
+        'Uttar Pradesh, Maharashtra, Gujarat and many parts of India.',
+        'Bhajans, devotional programs, Krishna decorations and Dahi Handi celebrations.',
+        'August',
+        'C:\Users\OM\Downloads\janmastim.jfif')">
+
+        <img src="C:\Users\OM\Downloads\janmastim.jfif">
+        <h3>🦚 Janmashtami</h3>
+        <p>Birth of Lord Krishna</p>
+    </div>
+        <!-- 10 -->
+    <div class="festival-card"
+        onclick="showFestival('Eid ul-Fitr',
+        'Eid ul-Fitr marks the end of Ramadan and is a day of prayer, gratitude and community.',
+        'Celebrated by Muslim communities across India.',
+        'Special prayers, family gatherings, sharing food and giving to those in need.',
+        'Based on the Islamic lunar calendar',
+        'C:\Users\OM\Downloads\eid.jfif')">
+
+        <img src="C:\Users\OM\Downloads\eid.jfif">
+        <h3>🌙 Eid ul-Fitr</h3>
+        <p>Festival at the End of Ramadan</p>
+    </div>
+        <!-- 11 -->
+    <div class="festival-card"
+        onclick="showFestival('Christmas',
+        'Christmas celebrates the birth of Jesus Christ.',
+        'Celebrated throughout India, especially Goa, Kerala and major cities.',
+        'Church services, Christmas trees, decorations, carols and family gatherings.',
+        'December 25',
+        'C:\Users\OM\Downloads\christmas.jfif')">
+
+        <img src="C:\Users\OM\Downloads\christmas.jfif">
+        <h3>🎄 Christmas</h3>
+        <p>Festival of Joy</p>
+    </div>
+        <!-- 12 -->
+    <div class="festival-card"
+        onclick="showFestival('Mahashivratri',
+        'Mahashivratri is dedicated to Lord Shiva and is observed as a major devotional festival.',
+        'Across India, especially Varanasi, Uttarakhand and Tamil Nadu.',
+        'Temple visits, prayers, meditation and devotional activities.',
+        'February or March',
+        'C:\Users\OM\Downloads\shivrathri.jfif')">
+
+        <img src="C:\Users\OM\Downloads\shivrathri.jfif">
+        <h3>🔱 Mahashivratri</h3>
+        <p>Night of Lord Shiva</p>
+    </div>
+    <!-- 13 -->
+    <div class="festival-card"
+        onclick="showFestival('Ugadi',
+        'Ugadi marks the traditional New Year in Andhra Pradesh, Telangana and Karnataka.',
+        'Andhra Pradesh, Telangana and Karnataka.',
+        'Ugadi pachadi, house decorations, traditional prayers and new beginnings.',
+        'March or April',
+        'C:\Users\OM\Downloads\ugadi.jfif')">
+
+        <img src="C:\Users\OM\Downloads\ugadi.jfif">
+        <h3>🌿 Ugadi</h3>
+        <p>Telugu & Kannada New Year</p>
+    </div>
+    <!-- 14 -->
+    <div class="festival-card"
+        onclick="showFestival('Raksha Bandhan',
+        'Raksha Bandhan celebrates the bond of affection and care between brothers and sisters.',
+        'Across India.',
+        'Siblings exchange rakhis, gifts and spend time together.',
+        'July or August',
+        'C:\Users\OM\Downloads\raki.jfif')">
+
+        <img src="C:\Users\OM\Downloads\raki.jfif">
+        <h3>🎀 Raksha Bandhan</h3>
+        <p>Festival of Sibling Bond</p>
+    </div>
+    </section>
+
+<!-- POPUP -->
+<div class="modal" id="festivalModal">
+
+    <div class="modal-content">
+
+        <span class="close" onclick="closeFestival()">&times;</span>
+
+        <img id="modalImage">
+
+        <h2 id="modalTitle"></h2>
+
+        <h4>🌟 Why is it celebrated?</h4>
+        <p id="modalWhy"></p>
+
+        <h4>📍 Where is it celebrated?</h4>
+        <p id="modalWhere"></p>
+
+        <h4>🎊 How is it celebrated?</h4>
+        <p id="modalHow"></p>
+
+        <h4>📅 When is it celebrated?</h4>
+        <p id="modalWhen"></p>
+
+    </div>
+
+</div>
+<footer>
+    <h3>🇮🇳 Incredible India</h3>
+    <p>Celebrating India's Unity in Diversity</p>
+    <p>© 2026 Indian Festivals Website</p>
+</footer>
+
+<script>
+
+function showFestival(title, why, where, how, when, image) {
+
+    document.getElementById("modalTitle").innerText = title;
+    document.getElementById("modalWhy").innerText = why;
+    document.getElementById("modalWhere").innerText = where;
+    document.getElementById("modalHow").innerText = how;
+    document.getElementById("modalWhen").innerText = when;
+    document.getElementById("modalImage").src = image;
+
+    document.getElementById("festivalModal").style.display = "flex";
+}
+
+function closeFestival() {
+    document.getElementById("festivalModal").style.display = "none";
+}
+
+window.onclick = function(event) {
+
+    let modal = document.getElementById("festivalModal");
+
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+
+}
+
+</script>
+
+</body>
+</html>
